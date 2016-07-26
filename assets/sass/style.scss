@@ -1,0 +1,455 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, abbr, acronym, address, big, cite, code, hr, del, dfn, font, ins, kbd, q, s, samp, small, strike, tt, var, center,  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, select, input, button, textarea, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; text-decoration:none; outline: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+li { list-style: none; }
+em { text-decoration: italic; }
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+/* MIXIN */
+@mixin gradiente3($angulo,$opacity,$grad1, $grad2, $grad3) {
+	$angulo: $angulo+deg;
+	background: $grad1; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* Standard syntax */
+}
+
+@mixin gradiente2($angulo,$opacity,$grad1, $grad2) {
+	$angulo: $angulo+deg;
+	background: $grad1; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* Standard syntax */
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	-o-background-size: $value;
+	background-size: $value;
+}
+
+@mixin rotacao() {
+	$value: -5deg;
+	-webkit-transform: rotate($value);
+	-moz-transform: rotate($value);
+	-o-transform: rotate($value);
+	-ms-transform: rotate($value);
+	transform: rotate($value);
+}
+
+@mixin scale() {
+	$value: 1.2;
+	-webkit-transform: scale($value);
+	-moz-transform: scale($value);
+	-o-transform: scale($value);
+	-ms-transform: scale($value);
+	transform: scale($value);
+}
+
+@mixin scale-rotate() {
+	$scale: 1.2;
+	$rotate: -5deg;
+	-webkit-transform: scale($scale) rotate($rotate);
+	-moz-transform: scale($scale) rotate($rotate);
+	-o-transform: scale($scale) rotate($rotate);
+	-ms-transform: scale($scale) rotate($rotate);
+	transform: scale($scale) rotate($rotate);
+}
+
+@mixin box-sizing() {
+	$value: border-box;
+	-webkit-box-sizing: $value;
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+}
+
+@mixin animacao($value1,$value2) {
+	@if $value1 == '' { $value1: 0.2; }
+	@if $value2 == '' { $value2: 0; }
+	$valueIni: $value1+s;
+	$valueEnd: $value2+s;
+	-moz-transition: all $valueIni ease $valueEnd;
+	-webkit-transition: all $valueIni ease $valueEnd;
+	-o-transition: all $valueIni ease $valueEnd;
+}
+
+@mixin animacao-off() {
+	-moz-transition: none;
+	-webkit-transition: none;
+	-o-transition: none;
+}
+
+@mixin clear() {
+    &:before, &:after {
+        display: table;
+        content: ''; 
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/* VARIAVEIS */ 
+$font-family: 'Lato', sans-serif;;
+
+$cor-txt: #1c1310;
+$font-size: 1.375rem;
+
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+
+/* FONTS */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+html {
+	font-size: 100%; 
+}
+
+body * {
+	font-family: $font-family;
+	color: $cor-txt;
+}
+
+strong {
+	font-weight: bold;
+}
+
+input, button {
+	font-size: 1.11rem;
+	height: 48px;
+	line-height: 48px;
+	background-color: #ffffff;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+input {
+	background-color: #ececec;
+	color: $cor-txt;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {  
+	color: #8d8d8d;
+}
+
+p {
+	line-height: 1.3rem;
+	font-size: $font-size;
+	font-weight: $light;
+
+	&.destaque {
+		font-size: 1.625;
+	}
+}
+
+a, a:hover {
+	text-decoration: none;
+
+	:active {
+		text-decoration: none;
+	}
+}
+
+.align-right {
+	text-align: right;
+}
+ 
+.container {
+	width: 100%;
+	max-width: 1169px;
+	margin: 0 auto;
+	@include clear();
+}
+
+.txt-right {
+	text-align: right;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+.slide-home {
+	height: 80vh!important;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0;
+	overflow: hidden;
+	border-bottom: 2px solid #ac3d22;
+
+	.carousel {
+		height: 80vh!important;
+		border-bottom: 7px solid #ffffff;
+		overflow: hidden;
+	}
+
+	.item {
+		background-size: cover;
+		height: 80vh!important;
+
+		.caption {
+			display: block;
+			width: 800px;
+			height: 269px;
+			vertical-align: middle;
+			position: absolute;
+			z-index: 999;
+			margin: -130px 0 0 -460px;
+			top: 50%;
+			left: 50%;
+
+			&:before {
+				content: '';
+				width: 161px;
+				height: 269px;
+				background: url('../images/detalhe-slide.png') no-repeat 0 0;
+				position: relative;
+				z-index: 999;
+				float: left;
+			}
+
+			h2 {
+				color: #8b260d;
+				font-size: 2.125rem;
+				float: left;
+				margin-left: -15px;
+			}
+
+			span, a {
+				position: relative;
+				z-index: 888;
+				width: 251px;
+				margin-left: 115px;
+			}
+
+			span {
+				margin-top: 45px;
+				height: 155px;
+				font-size: 1rem;
+				line-height: 1.3rem;
+				color: #fff;
+				font-weight: $light;
+				padding: 25px 20px 25px 25px;
+				display: block;
+				background-color: rgba(#ac3d22, .9);
+			}
+
+			a {
+				background-color: #8b260d;
+				height: 53px;
+				line-height: 53px;
+				font-size: 1.5rem;
+				color: #fff;
+				padding-right: 40px;
+				display: block;
+				text-align: right;
+				@include animacao('','');
+
+				&:hover {
+					background-color: darken(#8b260d, 10%);
+				}
+			}
+		}
+	}
+
+	.controle-slide {
+		position: absolute;
+		top: 50%;
+		margin-top: -78px;
+		width: 100%;
+		z-index: 100;
+
+		a {
+			height: 136px;
+			width: 35px;
+			position: relative;
+			z-index: 999;
+
+			&:hover {
+				opacity: .5;
+			}
+
+			&.left {
+				left: 10%;
+				float: left;
+				background-image: url('../images/seta-slide-left.png');
+			}
+
+			&.right {
+				float: right;
+				right: 10%;
+				background-image: url('../images/seta-slide-right.png');
+			}
+		}
+	}
+	
+	.box-btn {
+		height: 88px;
+		position: absolute;
+		bottom: 18px;
+		font-size: 1rem;
+		left: 50%;
+		right: 50%;
+		margin-left: -584px;
+	}
+
+	.item-slide {
+		padding: 0;
+		@include animacao('','');
+
+		a {
+			display: table;
+			height: 88px;
+			padding: 25px;
+
+			img, span {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			img {
+				margin-right: 30px;
+			}
+
+			span {
+				color: #ffffff;
+				line-height: 1rem;
+				font-size: 1rem;
+			}
+		}
+
+		&:nth-child(1) {
+			background-color: lighten(#ac3d22, 10%);
+			&:hover {
+				background-color: #ac3d22;
+			}
+		}
+
+		&:nth-child(2) {
+			background-color: lighten(#ac3d22, 5%);
+			&:hover {
+				background-color: darken(#ac3d22, 5%);
+			}
+		}
+
+		&:nth-child(3) {
+			background-color: #ac3d22;
+			&:hover {
+				background-color: darken(#ac3d22, 10%);
+			}
+		}
+
+		&:nth-child(4) {
+			background-color: darken(#ac3d22, 5%);
+			&:hover {
+				background-color: darken(#ac3d22, 15%);
+			}
+		}
+
+	}
+}
+
+.header { 
+	width: 100%;
+	position: relative;
+	padding: 7px 0;
+	z-index: 999;
+	background: url('../images/bg-header.png') repeat-x 0 0;
+	border-bottom: 2px solid #ac3d22;
+	overflow: hidden;
+
+	 .container {
+	 	overflow: hidden;
+	 }
+
+	h1 {
+		background-color: #fff;
+		padding: 5px 50px;
+		margin-left: -50px;
+		float: left;
+
+		img {
+			display: block;
+			height: 86px;
+			width: 276px;
+		}
+	}
+
+	nav {
+		background-color: #ac3d22;
+		padding-bottom: 7px;
+		margin-left: 60px;
+		width: 100%;
+
+		.menu {
+			float: right;
+			margin: 21px 50px 0 0;
+
+			a {
+				color: #ffffff;
+				font-size: 1rem;
+				line-height: 1.2rem;
+				text-align: center;
+				padding: 10px 15px;
+				margin-left: 10px;
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				@include animacao('','');
+
+				&:hover {
+					opacity: .5;
+				}
+
+				&:after {
+					position: absolute;
+					right: -8px;
+					top: 50%;
+					content: '//';
+					color: #ffffff;
+					opacity: .5;
+					margin-top: -11px;
+				}
+
+				&:last-child, &:nth-child(5) {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
