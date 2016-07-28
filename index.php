@@ -175,7 +175,7 @@
 			<div class="row">
 				<div class="col-md-5 col-md-offset-1 contato">
 					<h2>CONTATO</h2>
-					<form action="">
+					<form action="javascript:">
 						<fieldset class="col-md-12">
 							<label for="nome">NOME/RAZÃO SOCIAL</label>
 							<input type="text" name="nome" id="nome">
@@ -193,7 +193,10 @@
 							<textarea name="mensagem" id="mensagem"></textarea>
 						</fieldset>
 						<fieldset class="col-md-12">
-							<button type="submit">ENVIAR</button>
+							<p class="msg-form"></p>
+						</fieldset>
+						<fieldset class="col-md-12">
+							<button class="enviar" type="submit">ENVIAR</button>
 						</fieldset>
 					</form>
 				</div>

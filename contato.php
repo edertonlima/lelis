@@ -12,7 +12,7 @@
 				<div class="col-md-8">
 					<h2>Fale Conosco</h2>
 					<p>Deixe sua mensagem para nós através do formulário abaixo.</p>
-					<form action="">
+					<form action="javascript:">
 						<fieldset class="">
 							<label for="nome">NOME/RAZÃO SOCIAL</label>
 							<input type="text" name="nome" id="nome">
@@ -30,7 +30,10 @@
 							<textarea name="mensagem" id="mensagem"></textarea>
 						</fieldset>
 						<fieldset class="">
-							<button type="submit">ENVIAR</button>
+							<p class="msg-form"></p>
+						</fieldset>
+						<fieldset class="">
+							<button class="enviar" type="submit">ENVIAR</button>
 						</fieldset>
 					</form>
 				</div>

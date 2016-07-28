@@ -648,11 +648,10 @@ a, a:hover {
 				margin: 0 0 20px;
 
 				a {
-					display: inline-block;
+					display: block;
 					padding: 20px;
 					margin: 0 35px 0 0;
 					width: auto;
-					float: right;
 					clear: both;
 
 					&:hover {

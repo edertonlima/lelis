@@ -3,7 +3,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="" type="image/x-icon">
+<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="content-language" content="pt" />
@@ -50,19 +50,22 @@
 
 		// envio do formulário
 		jQuery(".enviar").click(function(){
-			jQuery(this).html('Enviando').prop( "disabled", true );
-			jQuery(this).parent('form').find('.msg-form').html('').hide();
+			jQuery('.enviar').html('Enviando').prop( "disabled", true );
+			jQuery('.msg-form').html('').hide();
+			var nome = jQuery('#nome').val();
 			var email = jQuery('#email').val();
+			var telefone = jQuery('#telefone').val();
+			var mensagem = jQuery('#mensagem').val();
 
 			if(email!=''){
-				jQuery.getJSON("includes/mail.php", { email: email }, function(result){		
-					jQuery(this).parent('form').find('.msg-form').html(result).show();
-					jQuery(this).parent('form').trigger("reset");
-					jQuery(this).html('Enviar').prop( "disabled", false );
+				jQuery.getJSON("mail.php", { nome: nome, email: email, telefone: telefone, mensagem: mensagem }, function(result){		
+					jQuery('.msg-form').html(result).show();
+					jQuery('form').trigger("reset");
+					jQuery('.enviar').html('Enviar').prop( "disabled", false );
 				});
 			}else{
-				jQuery(this).parent('form').find('.msg-form').html('Por favor, digite um e-mail válido.').show();
-				jQuery(this).html('Enviar').prop( "disabled", false );
+				jQuery('.msg-form').html('Por favor, digite um e-mail válido.').show();
+				jQuery('.enviar').html('Enviar').prop( "disabled", false );
 			}
 		});
 
