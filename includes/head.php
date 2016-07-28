@@ -30,61 +30,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<!-- Scrolling Nav JavaScript -->
-<script src="assets/js/jquery.easing.min.js"></script>
-<script type="text/javascript">
-	//jQuery for page scrolling feature - requires jQuery Easing plugin
-	jQuery(function() {
-	    jQuery('.scroll').bind('click', function(event) {
-	        var anchor = jQuery(this);
-	        var position = (jQuery(anchor.attr('href')).offset().top)-110;
-	        jQuery('html, body').stop().animate({
-	            scrollTop: position
-	        }, 1500, 'easeInOutExpo');
-	        event.preventDefault();
-	    });
-	});
-</script>
-
-
 <script type="text/javascript">
 	jQuery.noConflict();
 </script>
 
 <script type="text/javascript">
-	
-	var position = '';
-	function menuFixed(position){		
-		if(position > 100){
-			jQuery('.top-container').addClass('menu-fixed');
-		}else{
-			jQuery('.top-container').removeClass('menu-fixed');
-		}
-	}
-
 	jQuery(document).ready(function(){
-		//var height = jQuery(window).height();
-		//jQuery('.header').height(height);
-
-		/* AJUSTE DE ALTURAS */
-		jQuery('.vantagens .img').height(jQuery('.vantagens .conteudo').height());
-		jQuery('.inventario .img').height(jQuery('.inventario .conteudo').height());
-		jQuery('.desenvolvimento').height(jQuery('.custo').height());
-
-    	position = jQuery(window).scrollTop();
-    	menuFixed(position);
-
-	    jQuery(window).scroll(function(){
-	    	position = jQuery(window).scrollTop();
-	    	menuFixed(position);
-	    });
 
 	    /* MENU */
 	    jQuery('.menu-mobile').click(function(){
 	    	jQuery(this).toggleClass('active');
 	    	jQuery('.menu').toggleClass('active');
 	    });
-
 	    jQuery('.menu a').click(function(){
 	    	jQuery('.menu-mobile').removeClass('active');
 	    	jQuery('.menu').removeClass('active');

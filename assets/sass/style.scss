@@ -241,6 +241,10 @@ a, a:hover {
 	display: block;
 	position: relative;
 
+	@media all and (max-width: 510px){
+		height: 110vh !important;
+	}
+
 	&:after {
 		content: '';
 		height: 2px;
@@ -253,11 +257,19 @@ a, a:hover {
 		height: 90vh!important;
 		border-bottom: 7px solid #ffffff;
 		overflow: hidden;
+
+		@media all and (max-width: 510px){
+			height: 110vh !important;
+		}
 	}
 
 	.item {
 		background-size: cover;
 		height: 90vh!important;
+
+		@media all and (max-width: 510px){
+			height: 110vh !important;
+		}
 
 		.caption {
 			display: block;
@@ -321,6 +333,40 @@ a, a:hover {
 					background-color: darken(#8b260d, 10%);
 				}
 			}
+
+			@media all and (max-width: 970px){
+				margin-left: -250px;
+				margin-top: 0px;
+				top: 40%;
+				width: 500px;
+				text-align: center;
+				height: auto;
+
+				h2 {
+					margin: 0px;
+					font-size: 2rem;
+					text-align: center;
+					margin-bottom: 20px;
+					width: 100%;
+				}
+				
+				span {
+					display: none;
+				}
+
+				a {
+					display: block;
+					clear: both;
+					text-align: center;
+					padding: 0 20px;
+					margin: 0px auto;
+					font-size: 1.125rem;
+				}
+
+				&:before {
+					display: none;
+				}
+			}
 		}
 	}
 
@@ -330,6 +376,11 @@ a, a:hover {
 		margin-top: -78px;
 		width: 100%;
 		z-index: 100;
+
+		@media all and (max-width: 510px){
+			top: 140px;
+			margin-top: 0px;
+		}
 
 		a {
 			height: 136px;
@@ -341,16 +392,41 @@ a, a:hover {
 				opacity: .5;
 			}
 
+			&.left, &.right {
+				@media all and (max-width: 510px){
+					width: 13px;
+					height: 50px;
+				}
+			}
+
 			&.left {
 				left: 10%;
 				float: left;
 				background-image: url('../images/seta-slide-left.png');
+				
+				@media all and (max-width: 1250px){ 
+					left: 2%; 
+				}
+
+				@media all and (max-width: 510px){
+					left: 10%;
+					background-image: url('../images/seta-slide-obras-left-mobile.png');
+				}
 			}
 
 			&.right {
 				float: right;
 				right: 10%;
 				background-image: url('../images/seta-slide-right.png');
+				
+				@media all and (max-width: 1250px){ 
+					right: 2%; 
+				}
+				
+				@media all and (max-width: 510px){
+					right: 10%;
+					background-image: url('../images/seta-slide-obras-right-mobile.png');
+				}
 			}
 		}
 	}
@@ -363,30 +439,68 @@ a, a:hover {
 		left: 50%;
 		right: 50%;
 		margin-left: -584px;
+
+		@media all and (max-width: 1180px){
+			bottom: auto;
+			position: relative;
+			left: auto;
+			right: auto;
+			margin: -40px 0 0 ;
+		}
 	}
 
 	.item-slide {
 		padding: 0;
 		@include animacao('','');
 
+		@media all and (max-width: 1180px){
+			text-align: center;
+		}
+
+		@media all and (max-width: 992px){
+			width: 50%;
+			float: left;
+		}
+	
+		@media all and (max-width: 510px){
+			width: 100%;
+		}
+
 		a {
 			display: table;
 			height: 88px;
 			padding: 25px;
 
+			@media all and (max-width: 1180px){
+				display: block;
+			}
+
 			img, span {
 				display: table-cell;
 				vertical-align: middle;
+
+				@media all and (max-width: 1180px){
+					display: inline-block;
+				}
 			}
 
 			img {
 				margin-right: 30px;
+
+				@media all and (max-width: 1180px){
+					margin-right: 15px;
+				}
 			}
 
 			span {
 				color: #ffffff;
 				line-height: 1rem;
 				font-size: 1rem;
+
+				@media all and (max-width: 1180px){
+					line-height: 1rem;
+					font-size: .75rem;
+				}
 			}
 		}
 
@@ -450,12 +564,18 @@ a, a:hover {
 	nav {
 		background-color: #ac3d22;
 		padding-bottom: 7px;
-		margin-left: 60px;
+		margin-left: 35px;
 		width: 100%;
 
 		.menu {
 			float: right;
 			margin: 21px 50px 0 0;
+			position: relative;
+			
+			@media all and (max-width: 510px){
+				padding-top: 50px;
+				width: 100%;
+			}
 
 			a {
 				color: #ffffff;
@@ -467,7 +587,25 @@ a, a:hover {
 				display: table-cell;
 				vertical-align: middle;
 				position: relative;
-				@include animacao('','');
+
+				@media all and (max-width: 1090px){
+					display: none;
+
+					&.area-restrita {
+						display: block;
+						position: absolute;
+						top: 6px;
+						right: 0px;
+					}
+				}
+
+				@media all and (max-width: 510px){
+					&.area-restrita {
+						top: 0px;
+						right: 50%;
+						margin: 0 -105px 0 0;
+					}
+				}
 
 				&:hover {
 					opacity: .5;
@@ -489,6 +627,109 @@ a, a:hover {
 					}
 				}
 			}
+
+			&.active {
+				width: 100%;
+				margin: 0 0 20px;
+
+				a {
+					display: inline-block;
+					padding: 20px;
+					margin: 0 35px 0 0;
+					width: auto;
+					float: right;
+					clear: both;
+
+					&:hover {
+						background-color: darken(#ac3d22, 10%);
+					}
+
+					&.area-restrita {
+						top: -59px;
+						padding: 0;
+						right: 30px;
+
+						@media all and (max-width: 510px){
+							top: 31px;
+							right: 50%;
+							margin: 0 -40px 0 0;
+						}
+
+					}
+
+					&:first-child {
+						margin-top: 20px;
+					}
+
+					br {
+						display: none;
+					}
+
+					&:before, &:after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.menu-mobile {
+			cursor: pointer;
+			top: 33px;
+			right: 120px;
+			height: 35px;
+			display: none;
+			position: absolute;
+
+			@media all and (max-width: 1090px){
+				display: inline-block;
+			}
+
+			@media all and (max-width: 510px){
+				top: 120px;
+				right: 50%;
+				margin-right: 15px;
+			}
+
+			span {
+				display: block;
+				width: 50px;
+				height: 5px;
+				text-decoration: none;
+				position: relative;
+				background-color: #ffffff;
+				margin-top: 14px;
+
+				&:before, &:after {
+					content: '';
+					position: absolute;
+				}
+
+				&:before {
+					top: -15px;
+				}
+
+				&:after {
+					top: 15px;
+				}
+
+				&:before, &:after {
+					background-color: #ffffff;
+					height: 5px;
+					width: 50px;
+					left: 0;
+				}
+			}
+
+			&:hover, &.active {
+				span {
+					background-color: #f35f3b;
+					
+					&:before, &:after {
+						background-color: #f35f3b;
+					}
+				}
+			}
+
 		}
 	}
 }
@@ -496,9 +737,15 @@ a, a:hover {
 .content {
 	background: url('../images/bg-content.jpg') no-repeat bottom right #ffffff;
 	min-height: 728px;
+	clear: both;
+
+	@media all and (max-width: 1180px){
+		margin-top: 40px;
+	}
 
 	h2 {
 		font-size: 1.625rem;
+		line-height: 2.4rem;
 		color: #ac3d22;
 		margin-bottom: 25px;
 
@@ -518,11 +765,29 @@ a, a:hover {
 		margin: 35px 0 20px;
 		text-align: center;
 	}
+
+	@media all and (max-width: 500px){
+		margin-bottom: 100px;
+	}
 }
 
 .slide-obras {
 	height: 400px;
 	position: relative;
+
+	@media all and (max-width: 1250px){
+		width: 720px;
+		margin: 0 auto;
+	}
+
+	@media all and (max-width: 850px){
+		width: 360px;
+	}
+
+	@media all and (max-width: 400px){
+		width: 285px;
+		margin-bottom: 80px;
+	}
 
 	.carousel {
 		height: 400px;
@@ -533,14 +798,32 @@ a, a:hover {
 		top: 50%;
 		margin-top: -78px;
 		width: 100%;
-		z-index: 100;
+		z-index: 0;
 		height: 136px;
+
+		@media all and (max-width: 500px){
+			top: auto;
+			bottom: -70px;
+			margin: 0;
+			left: 0;
+			z-index: 999;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+		}
 		
 		span {
 			a { 
 				width: 35px;
 				height: 136px;
 				text-indent: -10000px;
+
+				@media all and (max-width: 500px){
+					width: 13px;
+					height: 50px;
+					display: inline-block;
+					margin: 0 50px !important;
+				}
 			}
 
 			&:hover a {
@@ -551,12 +834,24 @@ a, a:hover {
 				margin-left: -50px;
 				float: left;
 				background-image: url('../images/seta-slide-obras-left.png');
+
+				@media all and (max-width: 500px){
+					margin: 0px;
+					float: none;
+					background-image: url('../images/seta-slide-obras-left-mobile.png');
+				}
 			}
 
 			&.right a {
 				float: right;
 				margin-right: -50px;
 				background-image: url('../images/seta-slide-obras-right.png');
+
+				@media all and (max-width: 500px){
+					margin: 0px;
+					float: none;
+					background-image: url('../images/seta-slide-obras-right-mobile.png');
+				}
 			}
 		}
 	}
@@ -564,11 +859,36 @@ a, a:hover {
 	.item {
 		width: (100%)/3;
 		float: left;
+
 		div { 
 			height: 390px;
 			margin-top: 10px;
 			position: relative;
 			background-size: cover;
+			@include animacao('','');
+
+			&:after {
+				position: absolute;
+				width: 100%;
+				height: 400px;
+				display: block;
+				top: 400px;
+				left: 0;
+				content: '';
+				z-index: 888;
+				background-color: rgba(#a13c24, .5);
+				@include animacao('','');
+			}
+		}
+
+		&:hover {
+			a {
+				background-color: darken(#a13c24, 15%);
+			}
+
+			div:after {
+				top: 0px;
+			}
 		}
 
 		.new {
@@ -579,6 +899,7 @@ a, a:hover {
 			top: -10px;
 			left: 10px;
 			padding: 2px 10px;
+			z-index: 999;
 		}
 
 		.descricao, a {
@@ -588,6 +909,7 @@ a, a:hover {
 			display: block;
 			text-align: center;
 			padding: 20px 10px;
+			z-index: 999;
 		}
 
 		.descricao {
@@ -608,6 +930,7 @@ a, a:hover {
 			line-height: 40px;
 			text-transform: uppercase;
 			background-color: #a13c24;
+			@include animacao('','');
 		}
 	}
 }
@@ -619,6 +942,10 @@ a, a:hover {
 		iframe {
 			width: 100%;
 			height: 380px;
+		}
+
+		@media all and (max-width: 992px){
+			margin-top: 50px;
 		}
 	}
 }
@@ -688,6 +1015,48 @@ a, a:hover {
 				height: 24px;
 				float: right;
 				margin-left: 5px;
+			}
+
+			@media all and (min-width: 992px) and (max-width: 1140px){
+				text-align: center;				
+				a {
+					display: block;
+				}
+
+				img {
+					float: none;
+					display: line-block;
+				}
+			}
+		}
+
+		@media all and (max-width: 992px){
+			.copy, .endereco {
+				width: 50%;
+				float: left;
+			}
+
+			.orpit {
+				clear: both;
+				width: 100%;
+				text-align: center;
+
+				a {
+					display: inline-block;
+					top: 6px;
+					position: relative;
+				}
+			}
+		}
+
+		@media all and (max-width: 770px){
+			.copy, .endereco {
+				width: 100%;
+				text-align: center;
+			}
+
+			.endereco {
+				margin-top: 20px;
 			}
 		}
 	}
